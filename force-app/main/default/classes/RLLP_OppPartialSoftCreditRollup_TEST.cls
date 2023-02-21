@@ -130,7 +130,7 @@ private class RLLP_OppPartialSoftCreditRollup_TEST {
     * @description test that soft credit rollups do not double count an opp when two OCRs exist.
     * @return void
     */ 
-    static testmethod void testDuplicateOCRSoftCredits() {
+    @IsTest static void testDuplicateOCRSoftCredits() {
       Contact con = new Contact(lastname='Testy');
       insert con;
       con = [select Id, lastname, AccountId from Contact];
@@ -176,7 +176,7 @@ private class RLLP_OppPartialSoftCreditRollup_TEST {
     * @description tests the new NPSP Soft Credit rollups for OCR's and Partial Soft Credits.
     * @return void
     */ 
-    static testmethod void testPartialSoftCreditRollups() {
+    @IsTest static void testPartialSoftCreditRollups() {
         createPSCData(cContactTest, cOppTest, amountTest);
 
         RLLP_OppRollup rllp = new RLLP_OppRollup();
@@ -207,7 +207,7 @@ private class RLLP_OppPartialSoftCreditRollup_TEST {
     * @description tests all of the summary fields supported for  Soft Credit rollups.
     * @return void
     */ 
-    static testmethod void testPartialSoftCreditRollupsAllStats() {
+    @IsTest static void testPartialSoftCreditRollupsAllStats() {
         // to deal with leap years, need to make N a little larger!
         npo02__Households_Settings__c hs = UTIL_CustomSettingsFacade.getHouseholdsSettings(); 
         hs.npo02__Rollup_N_Day_Value__c = 366;
@@ -314,7 +314,7 @@ private class RLLP_OppPartialSoftCreditRollup_TEST {
     * @description Tests the NPSP Soft Credit rollups in multicurrency enabled orgs.
     * @return void
     */ 
-    static testmethod void testMulticurrencyPartialSoftCreditRollups() {
+    @IsTest static void testMulticurrencyPartialSoftCreditRollups() {
         //only run test in multicurrency orgs
         if (!RLLP_OppRollup_UTIL.isMultiCurrency())
             return;

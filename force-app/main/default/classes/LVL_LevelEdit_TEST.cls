@@ -41,7 +41,7 @@ private with sharing class LVL_LevelEdit_TEST {
     * @description create a new level from the page
     * verify Level created
     */ 
-    static testmethod void testNewLevel() {
+    @IsTest static void testNewLevel() {
         Test.setCurrentPage(Page.LVL_LevelEdit);
         ApexPages.StandardController stdCtrl = new ApexPages.StandardController(new Level__c());
         LVL_LevelEdit_CTRL ctrl = new LVL_LevelEdit_CTRL(stdCtrl);
@@ -65,7 +65,7 @@ private with sharing class LVL_LevelEdit_TEST {
     * @description create two new levels from the page
     * verify Level created
     */ 
-    static testmethod void testSaveAndNewLevel() {
+    @IsTest static void testSaveAndNewLevel() {
         Test.setCurrentPage(Page.LVL_LevelEdit);
         ApexPages.StandardController stdCtrl = new ApexPages.StandardController(new Level__c());
         LVL_LevelEdit_CTRL ctrl = new LVL_LevelEdit_CTRL(stdCtrl);
@@ -95,7 +95,7 @@ private with sharing class LVL_LevelEdit_TEST {
     * @description test Target field changes refresh our Source Field and Level Field selectoption lists
     * verify Level created
     */ 
-    static testmethod void testTargetFieldChange() {
+    @IsTest static void testTargetFieldChange() {
         Test.setCurrentPage(Page.LVL_LevelEdit);
         ApexPages.StandardController stdCtrl = new ApexPages.StandardController(new Level__c());
         LVL_LevelEdit_CTRL ctrl = new LVL_LevelEdit_CTRL(stdCtrl);
@@ -124,7 +124,7 @@ private with sharing class LVL_LevelEdit_TEST {
     * @description clone a level from the page
     * verify Level created
     */ 
-    static testmethod void testCloneLevel() {
+    @IsTest static void testCloneLevel() {
         Level__c lvl = new Level__c(
             Name = 'test level',
             Target__c = 'Contact',

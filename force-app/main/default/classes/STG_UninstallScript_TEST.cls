@@ -36,7 +36,7 @@
 @isTest
 public with sharing class STG_UninstallScript_TEST {
 
-    public testmethod static void rununinstall() {
+    @IsTest public static void rununinstall() {
         //The scheduled jobs are being set when the settings page loads
         STG_SettingsManager_CTRL ctrl = new STG_SettingsManager_CTRL(); 
         ctrl.onNpspSettingsLoad();

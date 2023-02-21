@@ -32,7 +32,7 @@
 private with sharing class fflib_ComparatorTest
 {
 
-	private static testmethod void testNulls()
+	@IsTest private static void testNulls()
 	{
 		String aNull = null;
 		Object aNullO = aNull;
@@ -42,7 +42,7 @@ private with sharing class fflib_ComparatorTest
 		System.assertEquals(1, fflib_Comparator.compare(xyz, aNullO));
 	}
 
-	private static testmethod void testBlob()
+	@IsTest private static void testBlob()
 	{
 		Object b1 = Blob.valueOf('123');
 		Object b2 = Blob.valueOf('abc');
@@ -58,7 +58,7 @@ private with sharing class fflib_ComparatorTest
 		System.assert(exceptionThrown);
 	}
 
-	private static testmethod void testBoolean()
+	@IsTest private static void testBoolean()
 	{
 		assertCompareBoolean(false, true, -1);
 		assertCompareBoolean(true, true, 0);
@@ -71,7 +71,7 @@ private with sharing class fflib_ComparatorTest
 		System.assertEquals(expected, fflib_Comparator.compare(b1, b2));
 	}
 
-	private static testmethod void testDate()
+	@IsTest private static void testDate()
 	{
 		assertCompareDate(date.newinstance(1980, 2, 17), date.newinstance(1981, 2, 17), -1);
 		assertCompareDate(date.newinstance(1981, 2, 17), date.newinstance(1981, 2, 17), 0);
@@ -83,7 +83,7 @@ private with sharing class fflib_ComparatorTest
 		System.assertEquals(expected, fflib_Comparator.compare(d1, d2));
 	}
 
-	private static testmethod void testDatetime()
+	@IsTest private static void testDatetime()
 	{
 		Object d1 = Datetime.newInstance(2010, 01, 1, 12, 30, 0);
 		Object d2 = Datetime.newInstance(2020, 01, 1, 12, 30, 0);
@@ -92,7 +92,7 @@ private with sharing class fflib_ComparatorTest
 		assertCompareDatetime(d2, d1, 1);
 	}
 
-	private static testmethod void testDatetimeToDate()
+	@IsTest private static void testDatetimeToDate()
 	{
 		Object d1 = Date.newInstance(2010, 01, 1);
 		Object d2 = Datetime.newInstance(2020, 01, 1, 12, 30, 0);
@@ -106,7 +106,7 @@ private with sharing class fflib_ComparatorTest
 		System.assertEquals(expected, fflib_Comparator.compare(d1, d2));
 	}
 
-	private static testmethod void testDecimal()
+	@IsTest private static void testDecimal()
 	{
 		Decimal d1 = 123.123;
 		Decimal d2 = 125.125;
@@ -120,7 +120,7 @@ private with sharing class fflib_ComparatorTest
 		System.assertEquals(expected, fflib_Comparator.compare(d1, d2));
 	}
 
-	private static testmethod void testDouble()
+	@IsTest private static void testDouble()
 	{
 		Double d1 = 123.123;
 		Double d2 = 125.125;
@@ -134,7 +134,7 @@ private with sharing class fflib_ComparatorTest
 		System.assertEquals(expected, fflib_Comparator.compare(d1, d2));
 	}
 
-	private static testmethod void testInteger()
+	@IsTest private static void testInteger()
 	{
 		Integer i1 = -10;
 		Integer i2 = 15;
@@ -148,7 +148,7 @@ private with sharing class fflib_ComparatorTest
 		System.assertEquals(expected, fflib_Comparator.compare(i1, i2));
 	}
 
-	private static testmethod void testLong()
+	@IsTest private static void testLong()
 	{
 		Long i1 = -10;
 		Long i2 = 15;
@@ -162,7 +162,7 @@ private with sharing class fflib_ComparatorTest
 		System.assertEquals(expected, fflib_Comparator.compare(l1, l2));
 	}
 
-	private static testmethod void testTime()
+	@IsTest private static void testTime()
 	{
 		Time t1 = Time.newInstance(18, 30, 2, 20);
 		Time t2 = Time.newInstance(18, 30, 2, 21);
@@ -175,7 +175,7 @@ private with sharing class fflib_ComparatorTest
 		System.assertEquals(expected, fflib_Comparator.compare(t1, t2));
 	}
 
-	private static testmethod void testString()
+	@IsTest private static void testString()
 	{
 		String s1 = 'abc';
 		String s2 = 'def';
@@ -189,46 +189,46 @@ private with sharing class fflib_ComparatorTest
 		System.assertEquals(expected, fflib_Comparator.compare(s1, s2));
 	}
 
-	private static testMethod void assertContainsNull()
+	@IsTest private static void assertContainsNull()
 	{
 		System.assert(fflib_Comparator.contains(null, null));
 	}
 
-	private static testMethod void assertContainsSourceNull()
+	@IsTest private static void assertContainsSourceNull()
 	{
 		System.assert(!fflib_Comparator.contains(null, 0));
 	}
 
-	private static testMethod void assertContainsSearchNull()
+	@IsTest private static void assertContainsSearchNull()
 	{
 		System.assert(!fflib_Comparator.contains(new Set<String>(), null));
 	}
 
-	private static testMethod void assertContainsDate()
+	@IsTest private static void assertContainsDate()
 	{
 		Date myDate = Date.newInstance(1976, 6, 1);
 		System.assert(fflib_Comparator.contains(new Set<Date> {myDate}, myDate));
 	}
 
-	private static testMethod void assertContainsDateTime()
+	@IsTest private static void assertContainsDateTime()
 	{
 		Datetime myDateTime = DateTime.newInstance(1976, 6, 1, 11, 55, 0);
 		System.assert(fflib_Comparator.contains(new Set<Datetime> {myDateTime}, myDateTime));
 	}
 
-	private static testMethod void assertContainsDouble()
+	@IsTest private static void assertContainsDouble()
 	{
 		Double myDouble = Double.valueOf(123);
 		System.assert(fflib_Comparator.contains(new Set<Double> {myDouble}, myDouble));
 	}
 
-	private static testMethod void assertContainsId()
+	@IsTest private static void assertContainsId()
 	{
 		Id id = fflib_IDGenerator.generate(Account.SObjectType);
 		System.assert(fflib_Comparator.contains(new Set<Id> {id}, id));
 	}
 
-	private static testMethod void assertContainsInteger()
+	@IsTest private static void assertContainsInteger()
 	{
 		Set<Integer> integerSet = new Set<Integer>
 		{
@@ -242,30 +242,30 @@ private with sharing class fflib_ComparatorTest
 		System.assertEquals(true, (object) acc.get('NumberOfEmployees') instanceof integer);
 	}
 
-	private static testMethod void assertContainsLong()
+	@IsTest private static void assertContainsLong()
 	{
 		Long myLong = Long.valueOf('3123');
 		System.assert(fflib_Comparator.contains(new Set<Long> {myLong}, myLong));
 	}
 
-	private static testMethod void assertContainsObject()
+	@IsTest private static void assertContainsObject()
 	{
 		Object obj = (Object) '134';
 		System.assert(fflib_Comparator.contains(new Set<Object>{obj}, obj));
 	}
 
-	private static testMethod void assertContainsTime()
+	@IsTest private static void assertContainsTime()
 	{
 		Time myTime = Time.newInstance(11, 55, 0, 0);
 		System.assert(fflib_Comparator.contains(new Set<Time> {myTime}, myTime));
 	}
 
-	private static testMethod void assertContainsString()
+	@IsTest private static void assertContainsString()
 	{
 		System.assert(fflib_Comparator.contains(new Set<String> {'Test'}, 'Test'));
 	}
 
-	private static testMethod void assertContainsSObject()
+	@IsTest private static void assertContainsSObject()
 	{
 		Account myAccount = new Account();
 		Boolean exceptionThrown = false;

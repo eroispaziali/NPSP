@@ -36,7 +36,7 @@
 @isTest
 private class OPP_MatchingDonationsBTN_TEST {
 
-    static testmethod void TestMatchingDonationPage()
+    @IsTest static void TestMatchingDonationPage()
     {
         Account testaccount = new Account(name='Test Company');
         insert testaccount;
