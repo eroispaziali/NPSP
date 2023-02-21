@@ -296,7 +296,7 @@ public with sharing class ADDR_Cicero_TEST {
     /*********************************************************************************************************
     * @description Tests validating a single address.
     */
-	private static testmethod void singleValidAddr() {
+	@IsTest private static void singleValidAddr() {
         list<Address__c> listAddr = new list<Address__c>();
         Address__c addr = new Address__c();
         addr.MailingStreet__c = '1 market st #300';
@@ -325,7 +325,7 @@ public with sharing class ADDR_Cicero_TEST {
     /*********************************************************************************************************
     * @description Tests that user can choose to not have the Cicero response overwrite their address.
     */
-    private static testmethod void doesNotOverwriteAddr() {
+    @IsTest private static void doesNotOverwriteAddr() {
         list<Address__c> listAddr = new list<Address__c>();
         Address__c addr = new Address__c();
         addr.MailingStreet__c = '';
@@ -354,7 +354,7 @@ public with sharing class ADDR_Cicero_TEST {
     /*********************************************************************************************************
     * @description Tests that user can allow Cicero response to overwrite the provided address.
     */
-    private static testmethod void doesOverwriteAddr() {
+    @IsTest private static void doesOverwriteAddr() {
         list<Address__c> listAddr = new list<Address__c>();
         Address__c addr = new Address__c();
         addr.MailingStreet__c = '1 market';

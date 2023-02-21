@@ -55,7 +55,7 @@ public with sharing class ADDR_Validator_Batch_TEST {
         Test.setMock(HttpCalloutMock.class, new ADDR_MockHttpRespGenerator_TEST());
     }
     
-    public static testmethod void oneValidAddress() {
+    @IsTest public static void oneValidAddress() {
         //skip the test if Advancement is installed
         if(ADV_PackageInfo_SVC.useAdv()) return;
 
@@ -123,7 +123,7 @@ public with sharing class ADDR_Validator_Batch_TEST {
         System.assertEquals('CA', account.BillingState);*/
     }
     
-    public static testmethod void multipleValidAddresses() {
+    @IsTest public static void multipleValidAddresses() {
         //skip the test if Advancement is installed
         if(ADV_PackageInfo_SVC.useAdv()) return;
 
@@ -193,7 +193,7 @@ public with sharing class ADDR_Validator_Batch_TEST {
         }
     }
     
-    public static testmethod void oneValidZipcode() {
+    @IsTest public static void oneValidZipcode() {
         //skip the test if Advancement is installed
         if(ADV_PackageInfo_SVC.useAdv()) return;
 
@@ -238,11 +238,11 @@ public with sharing class ADDR_Validator_Batch_TEST {
         System.assertEquals(true, addresses[0].Verified__c);
     }
     
-    public static testmethod void multipleValidZipcodes() {
+    @IsTest public static void multipleValidZipcodes() {
         createDefaultSettings();
     }
     
-    public static testmethod void multipleValidAddressessZipcodes() {
+    @IsTest public static void multipleValidAddressessZipcodes() {
         //skip the test if Advancement is installed
         if(ADV_PackageInfo_SVC.useAdv()) return;
 
@@ -323,7 +323,7 @@ public with sharing class ADDR_Validator_Batch_TEST {
         System.assertEquals(true, av2[0].Verified__c);
     }
     
-    public static testmethod void validAddressInvalidZipcode() {
+    @IsTest public static void validAddressInvalidZipcode() {
         createDefaultSettings();
     }     
 }

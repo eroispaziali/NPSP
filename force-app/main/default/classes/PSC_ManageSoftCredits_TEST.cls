@@ -104,7 +104,7 @@ public with sharing class PSC_ManageSoftCredits_TEST {
     * @description create some new Soft Credits on an Opp with no OCRs or PSCs.
     * verify OCRs and PSCs created
     */
-    static testmethod void createNewPSCs() {
+    @IsTest static void createNewPSCs() {
         initTestDataWithoutPscs();
         Test.setCurrentPage(Page.PSC_ManageSoftCredits);
         PSC_ManageSoftCredits_CTRL ctrl = new PSC_ManageSoftCredits_CTRL(new ApexPages.StandardController(opp));
@@ -151,7 +151,7 @@ public with sharing class PSC_ManageSoftCredits_TEST {
     * @description create some new Soft Credits on an Opp with no OCRs or PSCs, using percents.
     * verify OCRs and PSCs created
     */
-    static testmethod void createNewPSCsByPercent() {
+    @IsTest static void createNewPSCsByPercent() {
         initTestDataWithoutPscs();
         Test.setCurrentPage(Page.PSC_ManageSoftCredits);
         PSC_ManageSoftCredits_CTRL ctrl = new PSC_ManageSoftCredits_CTRL(new ApexPages.StandardController(opp));
@@ -211,7 +211,7 @@ public with sharing class PSC_ManageSoftCredits_TEST {
     * @description create some new Soft Credits on an Opp with existing PSCs.
     * verify OCRs and PSCs created
     */
-    static testmethod void createNewPSCsToExistingPSCs() {
+    @IsTest static void createNewPSCsToExistingPSCs() {
         initTestDataWithPscs();
         Test.setCurrentPage(Page.PSC_ManageSoftCredits);
         PSC_ManageSoftCredits_CTRL ctrl = new PSC_ManageSoftCredits_CTRL(new ApexPages.StandardController(opp));
@@ -252,7 +252,7 @@ public with sharing class PSC_ManageSoftCredits_TEST {
     /*******************************************************************************************************
     * @description handle loading PSC's with invalid OCR id's
     */
-    static testmethod void loadInvalidPSCs() {
+    @IsTest static void loadInvalidPSCs() {
         initTestDataWithPscs();
 
         // set the PSC's OCR lookups to invalid values
@@ -271,7 +271,7 @@ public with sharing class PSC_ManageSoftCredits_TEST {
     /*******************************************************************************************************
     * @description handle loading Soft Credit OCR's with no PSC's
     */
-    static testmethod void loadSoftCreditOCRs() {
+    @IsTest static void loadSoftCreditOCRs() {
         initTestData(false);
 
         // create Soft Credit OCR
@@ -291,7 +291,7 @@ public with sharing class PSC_ManageSoftCredits_TEST {
     * @description change some Soft Credits to full credits on an Opp with existing PSCs.
     * verify PSC's deleted, OCR's remain
     */
-    static testmethod void makeExistingPSCsFullCredits() {
+    @IsTest static void makeExistingPSCsFullCredits() {
         initTestDataWithPscs();
         Test.setCurrentPage(Page.PSC_ManageSoftCredits);
         PSC_ManageSoftCredits_CTRL ctrl = new PSC_ManageSoftCredits_CTRL(new ApexPages.StandardController(opp));
@@ -318,7 +318,7 @@ public with sharing class PSC_ManageSoftCredits_TEST {
     * @description make some Soft Credits be full credits on an Opp with existing PSCs.
     * verify PSC's not there, OCR's created
     */
-    static testmethod void makeNewPSCsFullCredits() {
+    @IsTest static void makeNewPSCsFullCredits() {
         initTestDataWithoutPscs();
         Test.setCurrentPage(Page.PSC_ManageSoftCredits);
         PSC_ManageSoftCredits_CTRL ctrl = new PSC_ManageSoftCredits_CTRL(new ApexPages.StandardController(opp));
@@ -387,7 +387,7 @@ public with sharing class PSC_ManageSoftCredits_TEST {
     * @description delete some existing PSCs by calling the delete action.
     * verify one PSC was deleted, one OCR was deleted
     */
-    static testmethod void deleteExistingPSCs() {
+    @IsTest static void deleteExistingPSCs() {
         initTestDataWithPscs();
         Test.setCurrentPage(Page.PSC_ManageSoftCredits);
         PSC_ManageSoftCredits_CTRL ctrl = new PSC_ManageSoftCredits_CTRL(new ApexPages.StandardController(opp));
@@ -411,7 +411,7 @@ public with sharing class PSC_ManageSoftCredits_TEST {
     * @description change some existing Soft Credits.
     * verify PSC's and OCR's
     */
-    static testmethod void updateExistingPSCs() {
+    @IsTest static void updateExistingPSCs() {
         initTestDataWithPscs();
         Test.setCurrentPage(Page.PSC_ManageSoftCredits);
         PSC_ManageSoftCredits_CTRL ctrl = new PSC_ManageSoftCredits_CTRL(new ApexPages.StandardController(opp));
@@ -445,7 +445,7 @@ public with sharing class PSC_ManageSoftCredits_TEST {
     verify:
         The transaction is completely rolled back and there is no partial commit
     **********************************************************************************************************/
-    private static testMethod void testSaveRollsBackAllDmlsOnError() {
+    @IsTest private static void testSaveRollsBackAllDmlsOnError() {
         initTestDataWithPscs();
         Test.setCurrentPage(Page.PSC_ManageSoftCredits);
         PSC_ManageSoftCredits_CTRL ctrl = new PSC_ManageSoftCredits_CTRL(new ApexPages.StandardController(opp));
@@ -486,7 +486,7 @@ public with sharing class PSC_ManageSoftCredits_TEST {
     verify:
         Records are saved as expected
     **********************************************************************************************************/
-    private static testMethod void testResaveSucceedsWhenErrorIsFixed() {
+    @IsTest private static void testResaveSucceedsWhenErrorIsFixed() {
         initTestDataWithPscs();
         Test.setCurrentPage(Page.PSC_ManageSoftCredits);
         PSC_ManageSoftCredits_CTRL ctrl = new PSC_ManageSoftCredits_CTRL(new ApexPages.StandardController(opp));
@@ -526,7 +526,7 @@ public with sharing class PSC_ManageSoftCredits_TEST {
     * @description test error scenarios
     * verify errors detected and reported
     */
-    static testmethod void testErrors() {
+    @IsTest static void testErrors() {
         initTestDataWithoutPscs();
 
         // create a primary donor OCR on the opp
@@ -578,7 +578,7 @@ public with sharing class PSC_ManageSoftCredits_TEST {
     * @description test handling of no Soft Credit Roles in NPSP Settings
     * verify errors detected and reported
     */
-    static testmethod void testNoSoftCreditRoles() {
+    @IsTest static void testNoSoftCreditRoles() {
         initTestDataWithoutPscs();
 
         // create a primary donor OCR on the opp

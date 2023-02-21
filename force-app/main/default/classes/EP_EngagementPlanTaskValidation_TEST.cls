@@ -39,7 +39,7 @@ public class EP_EngagementPlanTaskValidation_TEST {
     /*******************************************************************************************************
     * @description Insert a single Engagment Plan Task Dependent on an existing task.
     */ 
-    static testmethod void testSingleEPDependentTask() {
+    @IsTest static void testSingleEPDependentTask() {
         List<Engagement_Plan_Template__c> templateTests = UTIL_UnitTestData_TEST.createEPTemplates(1);
         insert templateTests;
         List<Engagement_Plan_Task__c> taskTests = UTIL_UnitTestData_TEST.createEPTasksForTemplates(2, templateTests);
@@ -57,7 +57,7 @@ public class EP_EngagementPlanTaskValidation_TEST {
     /*******************************************************************************************************
     * @description Insert multiple Engagment Plan Tasks Dependent on an existing task.
     */ 
-    static testmethod void testMultipleEPDependentTask() {
+    @IsTest static void testMultipleEPDependentTask() {
         List<Engagement_Plan_Template__c> templateTests = UTIL_UnitTestData_TEST.createEPTemplates(1);
         insert templateTests;
         List<Engagement_Plan_Task__c> taskTests = UTIL_UnitTestData_TEST.createEPTasksForTemplates(10, templateTests);
@@ -84,7 +84,7 @@ public class EP_EngagementPlanTaskValidation_TEST {
     * @description Update EP Tasks with redundant dependencies. e.g. task A is dependent on C, which is
     * dependent on B which is dependent on A
     */ 
-    static testmethod void testRedundantEPDependentTask() {
+    @IsTest static void testRedundantEPDependentTask() {
         List<Engagement_Plan_Template__c> templateTests = UTIL_UnitTestData_TEST.createEPTemplates(1);
         insert templateTests;
         List<Engagement_Plan_Task__c> taskTests = UTIL_UnitTestData_TEST.createEPTasksForTemplates(4, templateTests);
@@ -106,7 +106,7 @@ public class EP_EngagementPlanTaskValidation_TEST {
     /*******************************************************************************************************
     * @description Insert EP Tasks with dependency task from a different template.
     */ 
-    static testmethod void testCrossTemplateEPDependentTask() {
+    @IsTest static void testCrossTemplateEPDependentTask() {
         List<Engagement_Plan_Template__c> templateTests = UTIL_UnitTestData_TEST.createEPTemplates(2);
         insert templateTests;
         List<Engagement_Plan_Task__c> taskTests =
@@ -130,7 +130,7 @@ public class EP_EngagementPlanTaskValidation_TEST {
     /*******************************************************************************************************
     * @description Update EP Task that other tasks are dependent on and change its template.
     */ 
-    static testmethod void testUpdateCrossTemplateEPDependentTask() {
+    @IsTest static void testUpdateCrossTemplateEPDependentTask() {
         List<Engagement_Plan_Template__c> templateTests = UTIL_UnitTestData_TEST.createEPTemplates(2);
         insert templateTests;
         List<Engagement_Plan_Task__c> taskTests =
@@ -156,7 +156,7 @@ public class EP_EngagementPlanTaskValidation_TEST {
     /*******************************************************************************************************
     * @description Update EP Task template that is dependent on another tasks with a different template.
     */ 
-    static testmethod void testUpdateTemplateWithEPDependentTask() {
+    @IsTest static void testUpdateTemplateWithEPDependentTask() {
         List<Engagement_Plan_Template__c> templateTests = UTIL_UnitTestData_TEST.createEPTemplates(2);
         insert templateTests;
         List<Engagement_Plan_Task__c> taskTests =

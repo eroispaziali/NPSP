@@ -41,7 +41,7 @@ public with sharing class ERR_AddError_TEST {
     /*******************************************************************************************************
     * @description test (lack of) error handling on a database dml operation, verify success and failure results
     */
-    public testmethod static void databaseDml() {
+    @IsTest public static void databaseDml() {
         //skip the test if Advancement is installed
         if(ADV_PackageInfo_SVC.useAdv()) return;
 

@@ -96,7 +96,7 @@ public with sharing class PSC_PartialSoftCredit_TEST {
     /*******************************************************************************************************
     * @description create multiple new Partial Soft Credits, and verify new OCRs are created for them.
     */
-    static testmethod void createPSCsNewOCRs() {
+    @IsTest static void createPSCsNewOCRs() {
         
         createTestData(cContactTest, cOppTest, amountTest, false);
         
@@ -135,7 +135,7 @@ public with sharing class PSC_PartialSoftCredit_TEST {
     /*******************************************************************************************************
     * @description create multiple new Partial Soft Credits, and verify existing OCRs are used for them.
     */
-    static testmethod void createPSCsExistingOCRs() {
+    @IsTest static void createPSCsExistingOCRs() {
         
         createTestData(cContactTest, cOppTest, amountTest, true);
         
@@ -174,7 +174,7 @@ public with sharing class PSC_PartialSoftCredit_TEST {
     /*******************************************************************************************************
     * @description create multiple new Partial Soft Credits, and verify new & existing OCRs are used for them.
     */
-    static testmethod void createPSCsSomeExistingOCRs() {
+    @IsTest static void createPSCsSomeExistingOCRs() {
         
         createTestData(cContactTest, cOppTest, amountTest, true);
         
@@ -218,7 +218,7 @@ public with sharing class PSC_PartialSoftCredit_TEST {
     /*******************************************************************************************************
     * @description update existing PSC's Contact and Opportunity fields.  verify update fails with error.
     */
-    static testmethod void updatePSCsInvalidFields() {
+    @IsTest static void updatePSCsInvalidFields() {
         
         createTestData(cContactTest, cOppTest, amountTest, true);
         
@@ -262,7 +262,7 @@ public with sharing class PSC_PartialSoftCredit_TEST {
     * @description update existing PSC's Role fields.  verify OCR's that had same Role get updated but 
     * others do not.
     */
-    static testmethod void updatePSCsRoleName() {
+    @IsTest static void updatePSCsRoleName() {
         
          createTestData(cContactTest, cOppTest, amountTest, true);
         
@@ -322,7 +322,7 @@ public with sharing class PSC_PartialSoftCredit_TEST {
     /*******************************************************************************************************
     * @description create multiple new duplicate Partial Soft Credits, and verify new OCRs are created for them.
     */
-    static testmethod void createDupePSCsNewOCRs() {        
+    @IsTest static void createDupePSCsNewOCRs() {        
         createTestData(cContactTest, cOppTest, amountTest, false);
         
         list<OpportunityContactRole> listOCR = getOpportunityContactRoles();

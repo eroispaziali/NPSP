@@ -119,7 +119,7 @@ public with sharing class MTCH_FindGifts_TEST {
     * @description match some existing Opps to the Matching Gift
     * verify OCR and PSC created
     */
-    static testmethod void testCreateMatches() {
+    @IsTest static void testCreateMatches() {
         initTestData();
         Test.setCurrentPage(Page.MTCH_FindGifts);
         MTCH_FindGifts_CTRL ctrl = new MTCH_FindGifts_CTRL(new ApexPages.StandardController(oppMG));
@@ -147,7 +147,7 @@ public with sharing class MTCH_FindGifts_TEST {
     * @description match some existing Opps to the Matching Gift with a Matching Gift Percent < 100
     * verify OCR and PSC created
     */
-    static testmethod void testCreateMatchesPercent() {
+    @IsTest static void testCreateMatchesPercent() {
         initTestData(true, 50);
         Test.setCurrentPage(Page.MTCH_FindGifts);
         MTCH_FindGifts_CTRL ctrl = new MTCH_FindGifts_CTRL(new ApexPages.StandardController(oppMG));
@@ -175,7 +175,7 @@ public with sharing class MTCH_FindGifts_TEST {
     * @description unmatch some existing Opps to the Matching Gift
     * verify OCR and PSC deleted
     */
-    static testmethod void testUnmatchMatches() {
+    @IsTest static void testUnmatchMatches() {
         initTestData();
         createMatchesWithTestData();
         Test.setCurrentPage(Page.MTCH_FindGifts);
@@ -204,7 +204,7 @@ public with sharing class MTCH_FindGifts_TEST {
     * @description match some Searched for existing Opps to the Matching Gift
     * verify OCR and PSC created
     */
-    static testmethod void testCreateSearchedMatches() {
+    @IsTest static void testCreateSearchedMatches() {
         initTestData();
         Test.setCurrentPage(Page.MTCH_FindGifts);
         MTCH_FindGifts_CTRL ctrl = new MTCH_FindGifts_CTRL(new ApexPages.StandardController(oppMG));
@@ -248,7 +248,7 @@ public with sharing class MTCH_FindGifts_TEST {
     verify:
         The transaction is completely rolled back and there is no partial commit
     **********************************************************************************************************/
-    private static testMethod void testSaveAndCloseRollsBackAllDmlsOnError() {
+    @IsTest private static void testSaveAndCloseRollsBackAllDmlsOnError() {
         initTestData();
         createMatchesWithTestData();
         Test.setCurrentPage(Page.MTCH_FindGifts);
